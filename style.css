@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: #292929;
+    font-family: 'Open Sans', sans-serif;
+}
+nav{
+    position: fixed;
+}
+.navToggle{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    padding: 35px;
+}
+.navToggle input{
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+.navToggle span{
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: #ffffff;
+    border-radius: 3px;
+    z-index: 1;
+    position: relative;
+    transform-origin: 4px 0px;
+    transition: 0.5s ease;
+}
+.navToggle span:nth-child(3){
+    transform-origin: 0% 0%;
+}
+.navToggle span:nth-child(4){
+    transform-origin: 0% 100%;
+}
+ul{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    padding: 30px 30px 30px 100px;
+    background: #999999;
+    display: flex;
+    transform-origin: 0% 0%;
+    transform: translate(0, -100%);
+    transition: 0.5s ease;
+}
+ul li:not(:last-child){
+    margin-right: 40px;
+}
+ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.4em;
+    transition: 0.3s ease;
+}
+
+.navToggle input:checked ~ span{
+    opacity: 1;
+    transform: rotate(45deg) translate(0, 0);
+    background: #000000;
+}
+.navToggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+.navToggle input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(0, 0);
+}
+.navToggle input:checked ~ ul{
+    transform: none;
+}
+.navToggle a:hover{
+    color: #ffffff;
+}
